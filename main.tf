@@ -30,7 +30,7 @@ resource "snowflake_role" "role" {
 resource "snowflake_database_grant" "grant" {
   database_name = snowflake_database.db.name
   privilege = "USAGE"
-  role = [snowflake_role.role.name]
+  roles = [snowflake_role.role.name]
   with_grant_option = false
 }
 
@@ -44,14 +44,14 @@ resource "snowflake_schema_grant" "grant" {
   database_name = snowflake_database.db.name
   schema_name = snowflake_schema.schema.name
   privilege = "USAGE"
-  role = [snowflake_role.role.name]
+  roles = [snowflake_role.role.name]
   with_grant_option = false
 }
 
 resource "snowflake_warehouse_grant" "grant" {
   warehouse_name = snowflake_warehouse.warehouse.name
   privilege = "USAGE"
-  role = [snowflake_role.role.name]
+  roles = [snowflake_role.role.name]
   with_grant_option = false
 }
 
